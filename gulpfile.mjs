@@ -50,7 +50,7 @@ function includeHtml() {
             include({
                 prefix: "@@",
                 basepath: "@file"
-                })
+            })
         )
         .pipe(formatHtml())
         .pipe(gulp.dest("dist"));
@@ -84,7 +84,7 @@ function js() {
         include({
             prefix: "//@@",
             basepath: "@file"
-            })
+        })
     )
     .pipe(gulp.dest("dist/scripts"))
     .pipe(terser())
@@ -108,7 +108,7 @@ function copy() {
         .src(resources.static, {
             base: "src"
         })
-        .pipe(gulp.dest("dist/"))
+        .pipe(gulp.dest("dist/"));
     
 }
 
@@ -126,7 +126,7 @@ function images() {
     
 }
 
-function svgSprite(){
+function svgSprite() {
     return gulp
         .src(resources.svgSprite)
         .pipe(
@@ -142,7 +142,7 @@ function svgSprite(){
             })
         )
         .pipe(rename("symbols.svg"))
-        .pipe(gulp.dest("dist/assets/icon"));
+        .pipe(gulp.dest("dist/assets/icons"));
 }
 
 const build = gulp.series(
@@ -169,8 +169,8 @@ function serve() {
     gulp.watch(resources.less, gulp.series(style, reloadServer));
     gulp.watch(resources.jsDev, gulp.series(js, reloadServer));
     gulp.watch(resources.jsVendor, gulp.series(jsCopy, reloadServer));
-    gulp.watch(resources.static, {delay: 500}, gulp.series(copy, reloadServer));
-    gulp.watch(resources.images, {delay: 500}, gulp.series(images, reloadServer));
+    gulp.watch(resources.static, { delay: 500 }, gulp.series(copy, reloadServer));
+    gulp.watch(resources.images, { delay: 500 }, gulp.series(images, reloadServer));
     gulp.watch(resources.svgSprite, gulp.series(svgSprite, reloadServer));
 }
 
