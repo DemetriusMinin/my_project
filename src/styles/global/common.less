@@ -43,3 +43,33 @@ img {
     height: auto;
     object-fit: cover;
 }
+input,
+textarea,
+select {
+    box-shadow: none;
+    outline: none;
+    color: @black;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    &::placeholder {
+        color: @grey3;
+        transition: color 0.2s;
+    }
+    &:focus {
+         &::placeholder {
+        color: transparent;
+        }
+    }
+    
+}
+
+table,
+td {
+    border: 1px solid #bfbfbf;
+}

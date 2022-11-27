@@ -34,7 +34,7 @@ const resources = {
         "src/json/**/*.json",
         "src/php/**/*.php"
       ],
-      images: "src/assets/images/**/*.{png, jpg, jpeg, webp, gif, svg}",
+      images: "src/assets/images/**/*.{png,jpg,jpeg,webp,gif,svg}",
       svgSprite: "src/assets/svg-sprite/*.svg"
 }
 
